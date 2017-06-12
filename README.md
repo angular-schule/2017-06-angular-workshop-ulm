@@ -63,8 +63,10 @@ Achtung! Die Installation kann bei langsamen Internet sehr lange dauern.
 Warte beim Schritt `Installing packages for tooling via npm.` mit Geduld ab!
 
 
-> Auf http://localhost:4200 sollte nun eine Website mit dem Text "app works!" erscheinen!
-Wenn bei allen Teilnehmern "app works!" erscheint, können wir ohne Zeitverlust loslegen.
+> Auf http://localhost:4200 sollte nun eine Website mit dem Text "Welcome to app!!" erscheinen!
+Wenn bei allen Teilnehmern "Welcome to app!!" erscheint, können wir ohne Zeitverlust loslegen.
+
+![Screenshot CLI](http://assets.angular.schule/chrome_cli_welcome.png)
 
 
 ### Ich freue mich schon! :smile: 
