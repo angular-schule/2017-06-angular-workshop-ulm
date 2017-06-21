@@ -1,4 +1,10 @@
 <br-book
-  [book]="b"
-  *ngFor="let b of books; let i = index"
+  [book]="b" *ngFor="let b of books"
 ></br-book>
+
+
+<!--<div *ngFor="let b of books; index as i; last as l">
+  {{ i + 1}}. {{ l }}
+  <br-book [book]="b"></br-book>
+</div>
+-->
