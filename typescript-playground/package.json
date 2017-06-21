@@ -1,0 +1,16 @@
+{
+  "name": "typescript-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "webpack": "webpack"
+  },
+  "author": "Johannes Hoppe <johannes.hoppe@haushoppe-its.de> (http://haushoppe-its.de/)",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-loader": "^2.1.0",
+    "typescript": "^2.3.4",
+    "webpack": "^2.6.1"
+  }
+}
