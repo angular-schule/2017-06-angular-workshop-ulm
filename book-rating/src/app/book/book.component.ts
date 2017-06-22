@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { Book } from '../shared/book';
 
 @Component({
@@ -8,14 +8,15 @@ import { Book } from '../shared/book';
 })
 export class BookComponent {
   @Input() book: Book;
+  @Output() rated = new EventEmitter();
 
   rateUp() {
     this.book.rateUp();
+    this.rated.emit(this.book);
   }
 
   rateDown() {
     this.book.rateDown();
+    this.rated.emit(this.book);
   }
-
-
 }
