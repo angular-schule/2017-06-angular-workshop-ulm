@@ -9,7 +9,11 @@ import { Book } from '../shared/book';
 export class DashboardComponent implements OnInit {
   books: Book[];
 
-  constructor() { }
+  constructor() {
+    setTimeout(() => {
+      this.books[0] = new Book('', '', '')
+    }, 1000)
+  }
 
   ngOnInit() {
     this.books = [
