@@ -10,9 +10,7 @@ export class DashboardComponent implements OnInit {
   books: Book[];
 
   constructor() {
-    setTimeout(() => {
-      this.books[0] = new Book('', '', '')
-    }, 1000)
+
   }
 
   ngOnInit() {
