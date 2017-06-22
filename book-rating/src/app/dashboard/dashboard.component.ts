@@ -41,7 +41,6 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   reorderBooks(book: Book) {
-    console.log(2);
     this.books.sort((a, b) => b.rating - a.rating);
   }
 

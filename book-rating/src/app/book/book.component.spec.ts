@@ -1,8 +1,9 @@
+import { Book } from './../shared/book';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookComponent } from './book.component';
 
-xdescribe('BookComponent', () => {
+describe('BookComponent', () => {
   let component: BookComponent;
   let fixture: ComponentFixture<BookComponent>;
 
@@ -16,10 +17,25 @@ xdescribe('BookComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BookComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should be created', () => {
-    expect(component).toBeTruthy();
+  it('rating a book should call book.rateUp', () => {
+
+    let rateUpWasCalled = false;
+    component.book = {
+      isbn: 'test',
+      title: 'test',
+      description: 'test',
+      rating: 0,
+      rateUp: function() { rateUpWasCalled = true; },
+      rateDown: function() {},
+      rateUpPossible: true,
+      rateDownPossible: true,
+    };
+
+    fixture.detectChanges();
+    component.rateUp();
+
+    expect(rateUpWasCalled).toBe(true);
   });
 });
