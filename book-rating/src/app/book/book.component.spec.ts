@@ -21,14 +21,14 @@ describe('BookComponent', () => {
 
   it('rating a book should call book.rateUp', () => {
 
-    let rateUpWasCalled = false;
-    component.book = {
-      rateUp: () => { rateUpWasCalled = true },
-    } as Book;
+    const book = { rateUp: () => { } } as Book;
+    spyOn(book, 'rateUp');
+
+    component.book = book;
 
     fixture.detectChanges();
     component.rateUp();
 
-    expect(rateUpWasCalled).toBe(true);
+    expect(book.rateUp).toHaveBeenCalled();
   });
 });
