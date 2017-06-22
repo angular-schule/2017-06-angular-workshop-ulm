@@ -19,15 +19,15 @@ describe('BookComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('rating a book should call book.rateUp', () => {
+  it('should rateUp when a button is clicked', () => {
 
     const book = { rateUp: () => { } } as Book;
     spyOn(book, 'rateUp');
 
     component.book = book;
 
+    fixture.nativeElement.querySelectorAll('button')[1].click();
     fixture.detectChanges();
-    component.rateUp();
 
     expect(book.rateUp).toHaveBeenCalled();
   });
