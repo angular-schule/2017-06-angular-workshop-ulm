@@ -1,4 +1,4 @@
-import { browser, $, $$ } from 'protractor';
+import { protractor, browser, $, $$ } from 'protractor';
 
 fdescribe('Transporeon', () => {
 
@@ -14,7 +14,7 @@ fdescribe('Transporeon', () => {
 
   fit('should navigate to imprint', () => {
 
-    browser.driver.manage().window().setSize(1920, 1080);
+    browser.driver.manage().window().setSize(1920, 800);
     browser.get('https://www.transporeon.com/');
 
     browser.sleep(2500);
@@ -28,13 +28,16 @@ fdescribe('Transporeon', () => {
       browser.sleep(2500);
     }); // let's close all warnings on that page
 
+    // const imprintEl = $$('.impressum a').get(0);
+    // const isClickable = protractor.ExpectedConditions.elementToBeClickable(imprintEl);
+    // browser.wait(isClickable, 10000);
+    // imprintEl.click();
+
     const imprintEl = $$('.impressum a').get(0);
+    browser.actions().mouseMove(imprintEl).perform();
+    browser.actions().mouseMove(imprintEl).click();
 
-    browser.pause();
-
-    imprintEl.click();
-
-
+    browser.sleep(2500);
 
     browser.driver.getCurrentUrl()
       .then(function (url) {
