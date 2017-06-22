@@ -1,4 +1,4 @@
-import { browser, element, by } from 'protractor';
+import { browser, $$ } from 'protractor';
 
 fdescribe('Transporeon', () => {
 
@@ -7,7 +7,7 @@ fdescribe('Transporeon', () => {
   it('should display the right phone number', () => {
 
     browser.get('https://www.transporeon.com/');
-    const phoneEl = element.all(by.css('.footer-first_col a')).get(1);
+    const phoneEl = $$('.footer-first_col a').get(1);
     expect(phoneEl.getText()).toContain('+49 (0)731/16906 0');
   })
 
