@@ -6,22 +6,16 @@ import { Book } from '../shared/book';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.css']
 })
-export class BookComponent implements OnInit {
+export class BookComponent {
   @Input() book: Book;
-  test = 0;
 
-  constructor() {
-
+  rateUp() {
+    this.book.rateUp();
   }
 
-
-  random() {
-    console.log('Change Detection');
-    return ++this.test;
+  rateDown() {
+    this.book.rateDown();
   }
 
-  ngOnInit() {
-
-  }
 
 }

@@ -6,6 +6,13 @@
   <h2>{{ book.title }} <small>Stars {{ book.rating }}</small></h2>
   <p>{{ book.description }}</p>
 
-  {{ random() }}
+  <button
+    [disabled]="!book.rateDownPossible"
+    (click)="rateDown()"
+    class="btn btn-default glyphicon glyphicon-thumbs-down"></button>
 
+  <button
+    [disabled]="!book.rateUpPossible"
+    (click)="rateUp()"
+    class="btn btn-danger glyphicon glyphicon-thumbs-up"></button>
 </div>

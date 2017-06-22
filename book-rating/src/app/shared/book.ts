@@ -17,4 +17,12 @@ export class Book {
       this.rating--;
     }
   }
+
+  get rateUpPossible() {
+    return this.rating < 5;
+  }
+
+  get rateDownPossible() {
+    return this.rating > 0;
+  }
 }
