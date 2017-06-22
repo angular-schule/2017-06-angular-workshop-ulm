@@ -5,40 +5,14 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from '../shared/book';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
-import { Subscription } from "rxjs/Subscription";
 
 @Component({
   selector: 'br-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
+export class DashboardComponent implements OnInit {
   books: Book[];
-
-  @ViewChild(BookComponent)
-  bookComponent: BookComponent;
-
-  subscription: Subscription;
-
-  constructor() {
-
-  }
-
-  ngAfterViewInit() {
-    this.subscription = this.bookComponent.rated
-      // .filter(b => b.title === 'Angular')
-      .map(b => {
-        b.title += ' cool';
-        return b;
-      })
-      .subscribe((book: Book) => {
-        console.log(book);
-      });
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
 
   reorderBooks(book: Book) {
     this.books.sort((a, b) => b.rating - a.rating);
