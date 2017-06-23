@@ -1,8 +1,10 @@
-<br-create-book></br-create-book>
+<br-create-book
+  (bookCreated)="addBook($event)"
+  ></br-create-book>
 
 <br-book
   [book]="b" *ngFor="let b of books"
-  (rated)="reorderBooks($event)"
+  (rated)="reorderBooks()"
 ></br-book>
 
 Anzahl der Bücher: {{ books.length }}

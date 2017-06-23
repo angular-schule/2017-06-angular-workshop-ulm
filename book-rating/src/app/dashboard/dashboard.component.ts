@@ -14,7 +14,12 @@ import 'rxjs/add/operator/map';
 export class DashboardComponent implements OnInit {
   books: Book[];
 
-  reorderBooks(book: Book) {
+  addBook(book: Book) {
+    this.books.push(book);
+    this.reorderBooks();
+  }
+
+  reorderBooks() {
     this.books.sort((a, b) => b.rating - a.rating);
   }
 
