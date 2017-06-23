@@ -1,4 +1,4 @@
-<form>
+<form #bookCreation="ngForm">
 
   <div class="form-group">
     <label for="isbn">ISBN</label>
@@ -7,7 +7,11 @@
       class="form-control" type="text" id="isbn" name="isbn"
       required
       minlength="3"
-      #isbn> {{ isbn.className }}
+      #isbn="ngModel">
+  </div>
+
+  <div [hidden]="isbn.valid || isbn.pristine" class="alert alert-danger">
+    Bitte geben eine korrekte ISBN an.
   </div>
 
   <div class="form-group">
@@ -26,7 +30,9 @@
   </div>
 
   <div class="form-group">
-    <button (click)="add()" type="button" class="btn btn-danger">Submit</button>
+    <button
+      [disabled]="!bookCreation.valid"
+      (click)="add();" type="button" class="btn btn-danger">Submit</button>
   </div>
 
 </form>

@@ -1,7 +1,7 @@
 export class Book {
 
   static empty(): Book {
-    return new Book('', '', '');
+    return new Book('000', '', '');
   }
 
   constructor(
