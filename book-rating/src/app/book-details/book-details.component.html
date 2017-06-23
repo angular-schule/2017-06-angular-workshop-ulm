@@ -1,5 +1,8 @@
 <h3>
-  TODO show Book #{{ isbn }}
+  <ng-container *ngIf="isbn$ | async as isbn">
+    TODO show Book #{{ isbn }}
+    TODO show Book #{{ isbn }}
+  </ng-container>
 </h3>
 
 

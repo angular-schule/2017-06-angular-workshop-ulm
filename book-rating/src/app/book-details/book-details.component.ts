@@ -1,6 +1,7 @@
 import { Book } from './../shared/book';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'br-book-details',
@@ -8,26 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-details.component.css']
 })
 export class BookDetailsComponent implements OnInit {
-  isbn: string;
 
-  kindOf: KindOfBook;
+  isbn$: Observable<string>;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
 
-    this.route.params.subscribe(params => {
-      this.isbn = params.isbn;
-    })
+    this.isbn$ = this.route.params
+      .map(params => params.isbn as string);
 
-    this.kindOf = {
-      isbn: '',
-      hallo: 'LOADING'
-    }
-
-    // this.isbn = this.route.snapshot.params.isbn;
   }
-
 }
-
-declare type KindOfBook = Partial<Book> & { hallo: 'LOADING' | 'UNLOADING' };
