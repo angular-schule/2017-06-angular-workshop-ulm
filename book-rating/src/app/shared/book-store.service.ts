@@ -1,13 +1,17 @@
 import { Book } from './book';
 import { Http } from '@angular/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class BookStoreService {
 
-  constructor(private http: Http) { }
+  constructor(private http: Http,
+    @Inject('BACKEND_URL')
+    private backendUrl: string) {
+      console.log(backendUrl);
+    }
 
   getAll(): Observable<Book[]> {
     return this.http
