@@ -15,4 +15,6 @@
     [disabled]="!book.rateUpPossible"
     (click)="rateUp()"
     class="btn btn-danger glyphicon glyphicon-thumbs-up"></button>
+
+  <a [routerLink]="['/book', book.isbn]" class="btn btn-info">Details</a>
 </div>
